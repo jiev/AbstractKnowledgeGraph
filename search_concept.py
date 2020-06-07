@@ -41,8 +41,9 @@ class ConceptNet:
         graph = self.build_graph(edges)
         path = nx.all_pairs_shortest_path(graph)
         for i in path:
-            wd = i[0]
-            path_dict = i[1]
+            #python3.6 下得这么取才对
+            wd = i
+            path_dict = path[i]
             len_dict = {i:len(j) for i,j in path_dict.items()}
             len_dict_ = sorted(len_dict.items(), key=lambda asd:asd[1], reverse=True)
             longest_path = path_dict.get(len_dict_[0][0])
