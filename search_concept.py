@@ -12,10 +12,11 @@ class ConceptNet:
         cur = "/".join(os.path.abspath(__file__).split('/')[:-1])
         self.hiearchy_file = os.path.join(cur, "dict/hiearchy.txt")
         self.concept_file = os.path.join(cur, "dict/concept_total.txt")
+        self.all_dict = self.build_all_concepts()
         return
 
     '''加载概念边'''
-    def load_concept_edges(self, ):
+    def __load_concept_edges(self, ):
         edges = []
         for line in open(self.hiearchy_file):
             line = line.strip().split(' ')
@@ -27,18 +28,18 @@ class ConceptNet:
         return edges
 
     '''利用networkx构建有向图'''
-    def build_graph(self, edges):
+    def __build_graph(self, edges):
         G = nx.DiGraph()
         G.add_edges_from(edges)
         return G
 
     '''构造底层概念词典'''
-    def build_basic_concept(self):
+    def __build_basic_concept(self):
         concept_dict = {}
         print("loading concept edges")
-        edges = self.load_concept_edges()
+        edges = self.__load_concept_edges()
         print("build grpah")
-        graph = self.build_graph(edges)
+        graph = self.__build_graph(edges)
         path = nx.all_pairs_shortest_path(graph)
         for i in path:
             #python3.6 下得这么取才对
@@ -55,7 +56,7 @@ class ConceptNet:
     '''搜集主函数'''
     def build_all_concepts(self):
         all_dict = {}
-        concept_dict = self.build_basic_concept()
+        concept_dict = self.__build_basic_concept()
         print('building all concepts')
         for line in open(self.concept_file):
             line = line.strip().split('\t')
@@ -64,18 +65,17 @@ class ConceptNet:
             concept_path = concept_dict.get(wd, '')
             if not concept_path:
                 concept_path = [[wd] + concept_dict.get(c, [c]) for c in concepts]
+            else:
+                concept_path = [concept_path]
             all_dict[wd] = concept_path
         return all_dict
 
     '''层级搜索主函数'''
     def search_hiearchy(self):
-        import time
-        start_time = time.time()
-        all_dict = self.build_all_concepts()
-        print(time.time()-start_time)
         while 1:
             wd = input('enter an wd to search:').strip()
-            paths = all_dict.get(wd, '')
+            # all_dict 应该是 list 的 list
+            paths = self.all_dict.get(wd, '')
             if paths:
                 for path in paths:
                     print(wd, '抽象路径为：', '->'.join(path))
