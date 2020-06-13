@@ -78,7 +78,7 @@ class ConceptNet:
             paths = self.all_dict.get(wd, '')
             if paths:
                 for path in paths:
-                    print(wd, '抽象路径为：', '->'.join(path))
+                    print(wd, '抽象路径为:', '->'.join(path))
 
 if __name__ == '__main__':
     handler = ConceptNet()

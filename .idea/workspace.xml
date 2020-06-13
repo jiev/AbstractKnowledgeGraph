@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="da7a917e-4cd1-46a7-84d3-8b66d81f63f8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/search_concept_tree.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dict/concept_total.txt" beforeDir="false" afterPath="$PROJECT_DIR$/dict/concept_total.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/search_concept.py" beforeDir="false" afterPath="$PROJECT_DIR$/search_concept.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/search_concept_tree.py" beforeDir="false" afterPath="$PROJECT_DIR$/search_concept_tree.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,7 +73,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1564937339893</updated>
-      <workItem from="1591531313903" duration="5424000" />
+      <workItem from="1591531313903" duration="8117000" />
+      <workItem from="1591923855293" duration="612000" />
     </task>
     <servers />
   </component>
@@ -85,5 +86,9 @@
       <screen x="0" y="23" width="1440" height="833" />
     </state>
     <state x="570" y="42" key="#search_concept/0.23.1440.833@0.23.1440.833" timestamp="1591573718310" />
+    <state x="305" y="321" key="com.intellij.ide.util.TipDialog" timestamp="1591923863165">
+      <screen x="0" y="23" width="1440" height="833" />
+    </state>
+    <state x="305" y="321" key="com.intellij.ide.util.TipDialog/0.23.1440.833@0.23.1440.833" timestamp="1591923863165" />
   </component>
 </project>

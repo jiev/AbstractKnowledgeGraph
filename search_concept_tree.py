@@ -25,7 +25,7 @@ class concept_tree:
             # all_dict 应该是 list 的 list
             cp_set = self.cp_childs_dict.get(wd, '')
             if cp_set:
-                print(wd, '子节点内容：', '\t'.join(cp_set))
+                print(wd, '子节点内容:', '\t'.join(cp_set))
 
 
 if __name__ == '__main__':
